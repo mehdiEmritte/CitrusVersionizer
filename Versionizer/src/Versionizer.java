@@ -80,6 +80,8 @@ public class Versionizer {
 			lines.clear();
 			lines = null;
 			
+			System.out.println("Done and done.");
+			
 			
 		} catch (IOException e) {
 
