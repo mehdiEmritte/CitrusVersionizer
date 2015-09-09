@@ -16,7 +16,8 @@ public class Versionizer {
 
 		final int PRODUCT_FILE_CITRUS_VERSION_LINE = 3;
 		final int PRODUCT_FILE_CITRUS_FULL_VERSION_LINE = 9;
-		final int CITRUS_PLUGIN_FILE_CITRUS_FULL_VERSION_LINE = 56;
+		final int CITRUS_PLUGIN_FILE_CITRUS_ABOUT_FULL_VERSION_LINE = 36;
+		final int CITRUS_PLUGIN_FILE_CITRUS_WELCOME_FULL_VERSION_LINE = 56;
 		
 		
 		final String FULLVERSION = args[1] + " (" + args[2] + ")";
@@ -67,13 +68,24 @@ public class Versionizer {
 
 			lines = FileUtils.readLines(citrusMainPluginFile);
 			
-			System.out.println("citrus plugin version before update : '"
-					+ lines.get(CITRUS_PLUGIN_FILE_CITRUS_FULL_VERSION_LINE) + "'.");
+			System.out.println("citrus plugin version before update (welcome): '"
+					+ lines.get(CITRUS_PLUGIN_FILE_CITRUS_WELCOME_FULL_VERSION_LINE) + "'.");
 
-			lines.set(CITRUS_PLUGIN_FILE_CITRUS_FULL_VERSION_LINE,"               value=\"Citrus IDE "+ FULLVERSION + "\">"); 
+			lines.set(CITRUS_PLUGIN_FILE_CITRUS_WELCOME_FULL_VERSION_LINE,"               value=\"Citrus IDE "+ FULLVERSION + "\">"); 
 			
-			System.out.println("citrus plugin version after update : '"
-					+ lines.get(CITRUS_PLUGIN_FILE_CITRUS_FULL_VERSION_LINE) + "'.");
+			System.out.println("citrus plugin version after update (welcome): '"
+					+ lines.get(CITRUS_PLUGIN_FILE_CITRUS_WELCOME_FULL_VERSION_LINE) + "'.");
+			
+			/*---*/
+			
+			System.out.println("citrus plugin version before update (about): '"
+					+ lines.get(CITRUS_PLUGIN_FILE_CITRUS_ABOUT_FULL_VERSION_LINE) + "'.");
+
+			lines.set(CITRUS_PLUGIN_FILE_CITRUS_ABOUT_FULL_VERSION_LINE,"               value=\"@copyright Solutions Isoneo 2015 &#x0A;Citrus " + FULLVERSION + "\">"); 
+			
+			System.out.println("citrus plugin version after update (about): '"
+					+ lines.get(CITRUS_PLUGIN_FILE_CITRUS_ABOUT_FULL_VERSION_LINE) + "'.");
+			
 			
 			FileUtils.writeLines(citrusMainPluginFile, lines);
 			
