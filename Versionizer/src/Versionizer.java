@@ -45,7 +45,7 @@ public class Versionizer {
 			System.out.println("product version before update : '"
 					+ lines.get(PRODUCT_FILE_CITRUS_VERSION_LINE) + "'.");
 
-			lines.set(PRODUCT_FILE_CITRUS_VERSION_LINE,"<product name=\"CITRUS\" uid=\"citrus\" id=\"com.solutions.isoneo.citrus.product\" application=\"com.solutions.isoneo.citrus.application\" version=\"" + args[1] + "\" useFeatures=\"true\" includeLaunchers=\"true\">");
+			lines.set(PRODUCT_FILE_CITRUS_VERSION_LINE,"<product name=\"Citrus - " + args[1] + "\" uid=\"citrus\" id=\"com.solutions.isoneo.citrus.product\" application=\"com.solutions.isoneo.citrus.application\" version=\"" + args[1] + "\" useFeatures=\"true\" includeLaunchers=\"true\">");
 
 			System.out.println("product version after update : '"
 					+ lines.get(PRODUCT_FILE_CITRUS_VERSION_LINE) + "'.");
